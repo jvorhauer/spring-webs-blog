@@ -22,11 +22,6 @@ public class ToDoItem {
     this.status = status;
   }
 
-  ToDoItem status(final Status status) {
-    this.status = status;
-    return this;
-  }
-
 
   enum Priority { HIGH, MEDIUM, LOW }
   enum Status { TODO, DOING, DONE }

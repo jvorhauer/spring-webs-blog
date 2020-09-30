@@ -14,7 +14,7 @@ te bouwen?
 
 ## Badge
 
-![Java CI with Maven](https://github.com/jvorhauer/spring-webs-blog/workflows/Java%20CI%20with%20Maven/badge.svg)
+![Java CI with Maven](https://github.com/jvorhauer/spring-webs-blog/workflows/Clean%20Test/badge.svg)
 
 ## Work In Progress
 

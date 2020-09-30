@@ -7,10 +7,14 @@ reikwijdte van het hele Spring landschap is nog steeds een reden voor het gebrui
 In deze repo vindt de belangstellende drie modules, die allen dezelfde functionaliteit implementeren, maar met
 verschillende methodes om die functionaliteit als een REST API aan te bieden:
 
-1. Spring Web: traditioneel, nog net niet met XML voor de configuratie, maar wel veel annotaties
-2. Spring WebFlux: meer functioneel, zeker omdat ik gekozen heb om functionele endpoints variant te implementeren.
-3. Spring JaFu: geen annotaties, nog in de kinderschoenen, maar mogelijk een (de?) toekomstige methode om met Spring REST APIs
+1. **Spring Web**: traditioneel, nog net niet met XML voor de configuratie, maar wel veel annotaties
+2. **Spring WebFlux**: meer functioneel, zeker omdat ik gekozen heb om functionele endpoints variant te implementeren.
+3. **Spring JaFu**: geen annotaties, nog in de kinderschoenen, maar mogelijk een (de?) toekomstige methode om met Spring REST APIs
 te bouwen?
+
+## Badge
+
+![Java CI with Maven](https://github.com/jvorhauer/spring-webs-blog/workflows/Java%20CI%20with%20Maven/badge.svg)
 
 ## Work In Progress
 

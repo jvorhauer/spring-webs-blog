@@ -14,7 +14,7 @@ te bouwen?
 
 ## Badge
 
-![Java CI with Maven](https://github.com/jvorhauer/spring-webs-blog/workflows/Clean%20Test/badge.svg)
+![GitHub Action](https://github.com/jvorhauer/spring-webs-blog/workflows/Clean%20Test/badge.svg)
 
 ## Work In Progress
 
@@ -43,3 +43,5 @@ Belangrijkste is ongetwijfeld de ervaring met project Reactor en WebFlux: jaren 
 Ook testen gaat anders met WebFlux en JaFu. In plaats van de Spring web test annotaties moet er meer zelf gedaan worden. Wel meer controle daardoor en toch niet zoveel extra code als op het eerste gezicht nodig leek.
 
 JSON serialiseren en deserialiseren blijft een gevecht met Java. Veel tijd gekost om Jackson uit te leggen wat ik wil. Behalve bij de JaFu module! Daar is geen enkele extra configuratie noodzakelijk. Scheelt weer in obscure settings uitleggen aan degene die de code wil verbeteren en/of uitbreiden.
+
+GitHub Actions aanmaken en uitvoeren was ik al een tijdje van plan en dit project leek daar ideaal voor: geen moeilijke deploys, alleen bouwen en testen. De documentatie van GitHub Actions is oké, maar soms is het wel even zoeken. Aan de andere kant: werkt nu naar volle tevredenheid.

@@ -1,0 +1,18 @@
+# All http requests to perform simple tests and demonstrations
+
+### Create new ToDo:
+POST http://localhost:8080/todos
+Content-Type: application/json
+
+{
+  "title": "Test2",
+  "priority": "MEDIUM",
+  "status": "TODO"
+}
+
+### Get all ToDos:
+GET http://localhost:8080/todos
+
+
+### Only GET items with status TODO:
+GET http://localhost:8080/todos/todo

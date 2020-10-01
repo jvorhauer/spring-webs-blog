@@ -1,5 +1,6 @@
 package web;
 
+import io.vavr.control.Option;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -53,12 +55,12 @@ public class ToDoController {
              .getOrElse(ResponseEntity.notFound().build());
   }
 
-  @PutMapping(value = "/todos/{id}/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<ToDoItem> update(@PathVariable("id") final Long id, @PathVariable("status") final Status status) {
-    logger.info("update: {} -> {}", id, status);
-    return service.find(id)
-             .filter(todo -> status != null)
-             .map(todo -> service.update(todo, status))
+  @PutMapping(value = "/todos", produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<ToDoItem> update(@RequestBody @Valid final ToDoItem item) {
+    logger.info("update: {}", item);
+    return Option.of(item)
+             .filter(todo -> todo.getStatus() != null)
+             .map(service::update)
              .map(ResponseEntity::ok)
              .getOrElse(ResponseEntity.notFound().build());
   }

@@ -1,6 +1,7 @@
 package web;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static web.Status.DOING;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -58,13 +59,11 @@ public class ToDoTest {
     assertThat(todo.getStatus()).isEqualTo(Status.TODO);
     final Long id = todo.getId();
 
-    rest.put("http://localhost:" + port + "/todos/" + id + "/DOING", null);
-    ToDoItem[] todos = rest.getForObject("http://localhost:" + port + "/todos", ToDoItem[].class);
+    todo.setStatus(DOING);
+    rest.put("http://localhost:" + port + "/todos", todo);
+    ToDoItem todos = rest.getForObject("http://localhost:" + port + "/todos/" + todo.getId(), ToDoItem.class);
     assertThat(todos).isNotNull();
-    assertThat(todos).hasSize(1);
-    todo = todos[0];
-    assertThat(todo).isNotNull();
-    assertThat(todo.getStatus()).isEqualTo(Status.DOING);
+    assertThat(todos.getStatus()).isEqualTo(DOING);
   }
 
   @Test
@@ -75,15 +74,11 @@ public class ToDoTest {
     assertThat(todo).isNotNull();
     assertThat(todo.getId()).isNotNull();
     assertThat(todo.getStatus()).isEqualTo(Status.TODO);
-    final Long id = todo.getId();
 
-    rest.put("http://localhost:" + port + "/todos/" + id + "/NOPE", null);
-    ToDoItem[] todos = rest.getForObject("http://localhost:" + port + "/todos", ToDoItem[].class);
-    assertThat(todos).isNotNull();
-    assertThat(todos).hasSize(1);
-    todo = todos[0];
-    assertThat(todo).isNotNull();
-    assertThat(todo.getStatus()).isEqualTo(Status.TODO);
+    rest.put("http://localhost:" + port + "/todos", todo);
+    ToDoItem todo2 = rest.getForObject("http://localhost:" + port + "/todos/" + todo.getId() , ToDoItem.class);
+    assertThat(todo2).isNotNull();
+    assertThat(todo2.getStatus()).isEqualTo(Status.TODO);
   }
 
   @Test

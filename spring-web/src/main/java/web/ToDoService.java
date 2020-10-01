@@ -29,8 +29,8 @@ public class ToDoService {
     return List.ofAll(repo.findAll());
   }
 
-  public ToDoItem update(final ToDoItem todo, final Status status) {
-    return repo.save(todo.status(status));
+  public ToDoItem update(final ToDoItem todo) {
+    return repo.save(todo);
   }
 
   public void wipe() {

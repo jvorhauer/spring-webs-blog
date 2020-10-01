@@ -8,6 +8,7 @@ import org.springframework.data.relational.core.query.Query;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+// see: https://spring.io/guides/gs/accessing-data-r2dbc/
 class ToDoRepository {
 
   private final R2dbcEntityOperations ops;

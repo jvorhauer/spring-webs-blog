@@ -1,9 +1,9 @@
-package web;
+package webflux;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static web.ToDoItem.Priority.LOW;
-import static web.ToDoItem.Status.DOING;
-import static web.ToDoItem.Status.TODO;
+import static webflux.ToDoItem.Priority.LOW;
+import static webflux.ToDoItem.Status.DOING;
+import static webflux.ToDoItem.Status.TODO;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;

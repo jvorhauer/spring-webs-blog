@@ -1,4 +1,4 @@
-package web;
+package webflux;
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 

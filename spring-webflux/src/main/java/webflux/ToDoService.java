@@ -1,4 +1,4 @@
-package web;
+package webflux;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package web;
+package webflux;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

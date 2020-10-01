@@ -1,4 +1,4 @@
-package web;
+package webflux;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RequestPredicates.contentType;

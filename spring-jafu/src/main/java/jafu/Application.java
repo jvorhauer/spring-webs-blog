@@ -43,7 +43,9 @@ public class Application {
                    server.port(8080)
                      .router(r ->
                                r.GET("/todos", conf.ref(ToDoHandler.class)::all)
-                                .POST("/todos", conf.ref(ToDoHandler.class)::add))
+                                .POST("/todos", conf.ref(ToDoHandler.class)::add)
+                                .GET("/todo/{id}", conf.ref(ToDoHandler.class)::add)
+                                .DELETE("/todos", conf.ref(ToDoHandler.class)::wipe))
                      .codecs(codecs -> codecs.string().jackson());
                  }));
 }

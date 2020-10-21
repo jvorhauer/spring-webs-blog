@@ -32,4 +32,8 @@ class ToDoHandler {
              .flatMap(todo -> ok().bodyValue(todo));
 
   }
+
+  Mono<ServerResponse> wipe(final ServerRequest req) {
+    return repo.wipe().flatMap(i -> ok().bodyValue(i));
+  }
 }

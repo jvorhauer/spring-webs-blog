@@ -8,7 +8,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.4.0-M3</version>
+    <version>2.4.0-M4</version>
   </parent>
 
   <repositories>
@@ -49,9 +49,9 @@
   </pluginRepositories>
 
   <groupId>nl.jdriven</groupId>
-  <artifactId>spring-web-blog</artifactId>
+  <artifactId>spring-webs-blog</artifactId>
   <version>1.0.0</version>
-  <name>spring-web-blog</name>
+  <name>spring-webs-blog</name>
   <description>JDriven BlogTober: Spring Web oplossingen vergeleken</description>
   <packaging>pom</packaging>
 

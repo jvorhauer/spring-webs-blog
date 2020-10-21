@@ -13,10 +13,10 @@ import reactor.core.publisher.Mono;
 public class ApplicationTest {
 
   private final WebTestClient client = WebTestClient.bindToServer().baseUrl("http://localhost:8080").build();
-  private ConfigurableApplicationContext context;
+  private static ConfigurableApplicationContext context;
 
   @BeforeAll
-  void beforeAll() {
+  static void beforeAll() {
     context = Application.app.run("test");
   }
 
@@ -41,7 +41,7 @@ public class ApplicationTest {
   }
 
   @AfterAll
-  void afterAll() {
+  static void afterAll() {
     context.stop();
   }
 }

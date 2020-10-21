@@ -28,4 +28,8 @@ class ToDoRepository {
   Mono<ToDoItem> find(final Long id) {
     return ops.select(ToDoItem.class).matching(query(where("id").is(id))).one();
   }
+
+  Mono<Integer> wipe() {
+    return ops.delete(ToDoItem.class).all();
+  }
 }

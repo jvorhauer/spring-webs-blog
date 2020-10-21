@@ -14,7 +14,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 
 import javax.annotation.PostConstruct;
-import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ToDoTest {
@@ -35,7 +34,7 @@ public class ToDoTest {
   @Test
   void getShouldReturnEmptyList() {
     System.out.println("url: " + url);
-    assertThat(rest.getForObject("http://localhost:" + port + "/todos", List.class))
+    assertThat(rest.getForObject("http://localhost:" + port + "/todos", ToDoItem[].class))
       .isNotNull()
       .hasSize(0);
   }
@@ -57,7 +56,6 @@ public class ToDoTest {
     assertThat(todo).isNotNull();
     assertThat(todo.getId()).isNotNull();
     assertThat(todo.getStatus()).isEqualTo(Status.TODO);
-    final Long id = todo.getId();
 
     todo.setStatus(DOING);
     rest.put("http://localhost:" + port + "/todos", todo);

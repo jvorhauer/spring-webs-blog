@@ -24,7 +24,7 @@ public class Application {
   }
 
 
-  public static Consumer<ConfigurationDsl> dataConfig = conf ->
+  public static final Consumer<ConfigurationDsl> dataConfig = conf ->
                 conf.beans(beans ->
                              beans.bean(ConnectionFactoryInitializer.class, () -> {
                                ConnectionFactoryInitializer initializer = new ConnectionFactoryInitializer();
@@ -36,7 +36,7 @@ public class Application {
 
                 ).enable(r2dbc(dsl -> dsl.url("r2dbc:h2:mem:///testdb;DB_CLOSE_DELAY=-1")));
 
-  public static Consumer<ConfigurationDsl> webConfig = conf ->
+  public static final Consumer<ConfigurationDsl> webConfig = conf ->
                  conf.beans(beans ->
                               beans.bean(ToDoHandler.class, () -> new ToDoHandler(beans.ref(ToDoRepository.class)))
                  ).enable(webFlux(server -> {

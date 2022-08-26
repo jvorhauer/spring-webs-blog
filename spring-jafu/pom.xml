@@ -26,7 +26,7 @@
     <dependency>
       <groupId>org.springframework.fu</groupId>
       <artifactId>spring-fu-jafu</artifactId>
-      <version>0.4.2-SNAPSHOT</version>
+      <version>0.5.2-SNAPSHOT</version>
     </dependency>
 
     <dependency>
@@ -34,9 +34,16 @@
       <artifactId>spring-boot-starter-webflux</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-resolver-dns-native-macos</artifactId>
+      <version>4.1.79.Final</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-r2dbc</artifactId>
     </dependency>
+
 
     <!-- Non-Spring -->
     <dependency>

@@ -1,7 +1,7 @@
 package jafu;
 
 import static org.springframework.fu.jafu.Jafu.reactiveWebApplication;
-import static org.springframework.fu.jafu.r2dbc.R2dbcDsl.r2dbc;
+import static org.springframework.fu.jafu.r2dbc.DataR2dbcDsl.dataR2dbc;
 import static org.springframework.fu.jafu.webflux.WebFluxServerDsl.webFlux;
 
 import io.r2dbc.spi.ConnectionFactory;
@@ -34,18 +34,16 @@ public class Application {
                              })
                              .bean(ToDoRepository.class)
 
-                ).enable(r2dbc(dsl -> dsl.url("r2dbc:h2:mem:///testdb;DB_CLOSE_DELAY=-1")));
+                ).enable(dataR2dbc(r2 -> r2.r2dbc(dsl -> dsl.url("r2dbc:h2:mem:///testdb;DB_CLOSE_DELAY=-1"))));
 
   public static final Consumer<ConfigurationDsl> webConfig = conf ->
                  conf.beans(beans ->
                               beans.bean(ToDoHandler.class, () -> new ToDoHandler(beans.ref(ToDoRepository.class)))
-                 ).enable(webFlux(server -> {
-                   server.port(8080)
-                     .router(r ->
-                               r.GET("/todos", conf.ref(ToDoHandler.class)::all)
-                                .POST("/todos", conf.ref(ToDoHandler.class)::add)
-                                .GET("/todo/{id}", conf.ref(ToDoHandler.class)::add)
-                                .DELETE("/todos", conf.ref(ToDoHandler.class)::wipe))
-                     .codecs(codecs -> codecs.string().jackson());
-                 }));
+                 ).enable(webFlux(server -> server.port(8080)
+                   .router(r ->
+                             r.GET("/todos", conf.ref(ToDoHandler.class)::all)
+                              .POST("/todos", conf.ref(ToDoHandler.class)::add)
+                              .GET("/todo/{id}", conf.ref(ToDoHandler.class)::add)
+                              .DELETE("/todos", conf.ref(ToDoHandler.class)::wipe))
+                   .codecs(codecs -> codecs.string().jackson())));
 }
